@@ -5,9 +5,11 @@ def phone_validator(phone: str) -> bool:
     return bool(regex.match(phone))
     
     
-def remove_characters(cnpj: str) -> str:
-    format_cnpj = ''.join(filter(str.isdigit, str(cnpj)))
-    return format_cnpj.zfill(14)
+def format_cnpj(cnpj: int) -> str:
+    new_cnpj = re.sub(r'\D', '', str(cnpj))
+    if len(new_cnpj) > 0:
+        new_cnpj = new_cnpj.zfill(14)
+    return new_cnpj
 
 
 def calculate_digit(cnpj: str, weight: int) -> str:
@@ -17,9 +19,7 @@ def calculate_digit(cnpj: str, weight: int) -> str:
 
 
 def cnpj_validator(cnpj: str) -> bool:
-    cnpj = remove_characters(cnpj)
-    # if len(cnpj) != 14 or len(set(cnpj)) == 1:
-    #     return False
+    cnpj = format_cnpj(cnpj)
 
     pesos_1 = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
     primeiro_digito = calculate_digit(cnpj[:12], pesos_1)
@@ -27,7 +27,7 @@ def cnpj_validator(cnpj: str) -> bool:
     pesos_2 = [6] + pesos_1
     segundo_digito = calculate_digit(cnpj[:12] + primeiro_digito, pesos_2)
 
-    return cnpj[-2:] == primeiro_digito + segundo_digito
+    return bool(cnpj[-2:] == primeiro_digito + segundo_digito)
 
 
 def email_validator(email):
