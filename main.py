@@ -31,17 +31,11 @@ def save_outputs(path: str, data: list[dict]) -> None:
         print(f'Dados salvos com sucesso em {path}')
     except Exception as e:
         raise Exception(f'Erro ao salvar os dados: {e}')
-
     
-def extract_data(url) -> object:
+    
+def format_data(data: list[str]):
+    increment = 0
     try:
-        response = requests.get(url)
-        response.encoding = 'utf-8'
-        soup = BeautifulSoup(response.text, 'html.parser')
-        tree = etree.HTML(str(soup))
-        data = tree.xpath("//*[@class='inline cursor-copy']/span")
-        increment = 0
-        
         if cnpj_validator(data[9].text):
             cnpj = data[9].text
         else:
@@ -99,8 +93,20 @@ def extract_data(url) -> object:
                         f'{data[22 + increment].text}, '
                         f'{data[23 + increment].text}'
         }
-        print('Dados extraídos com sucesso')
         return obj
+    except Exception as e:
+        raise Exception(f'Erro ao formatar dados extraídos: {e}')
+
+    
+def extract_data(url) -> object:
+    try:
+        response = requests.get(url)
+        response.encoding = 'utf-8'
+        soup = BeautifulSoup(response.text, 'html.parser')
+        tree = etree.HTML(str(soup))
+        data = tree.xpath("//*[@class='inline cursor-copy']/span")
+        print('Dados extraídos com sucesso')
+        return data
     except Exception as e:
         raise Exception(f'Erro ao extrair os dados: {e}')
     
@@ -110,10 +116,15 @@ def main():
         cnpjs = read_inputs(PATH_INPUTS, COLUMN_INPUTS)
         all_data = []
         for cnpj in cnpjs:
-            print(f'Iniciando processo do CNPJ: {cnpj}')
-            data = extract_data(f'{URL}{cnpj}')
-            all_data.append(data)
-            sleep(13)  # Aguardo devido ao número de requisições máximas por minuto no site
+            if cnpj_validator(cnpj):                
+                print(f'Iniciando processo do CNPJ: {cnpj}')
+                data = extract_data(f'{URL}{cnpj}')
+                obj = format_data(data)
+                all_data.append(obj)
+                sleep(13)  # Aguardo devido ao número de requisições máximas por minuto no site
+            else:
+                obj = {'Razao Social': 'CNPJ INVÁLIDO', 'CNPJ': cnpj}
+                all_data.append(obj)
         save_outputs(PATH_OUTPUTS, all_data)
     except Exception as e:
         print(e)
