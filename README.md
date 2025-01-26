@@ -86,3 +86,7 @@ Para rodar o programa diretamente, utilize:
 ```bash
 python3 main.py
 ```
+Ou para o uso com interface
+```bash
+python3 interface.py
+```
