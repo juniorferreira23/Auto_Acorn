@@ -36,6 +36,7 @@ Ao iniciar o sistema, você poderá selecionar arquivos de entrada e saída fora
 Executável (Windows e Linux)
 Para executar o programa de maneira simples:
 
+### Windows
 - Basta fazer o Download ZIP do repositório **main**
 ![Ilustração efetuando o download do repositório](imgs/baixar_repositorio.png)
 - Extrair/Descompactar a pasta
@@ -43,6 +44,7 @@ Para executar o programa de maneira simples:
 Execute o arquivo **main.exe**:
 - **Windows**: Dê dois cliques no executável.
 
+### Linux
 - Basta fazer o Download ZIP do repositório **dev**
 - Extrair/Descompactar a pasta
 - Navegue até a raiz do repositório
