@@ -36,13 +36,20 @@ Ao iniciar o sistema, você poderá selecionar arquivos de entrada e saída fora
 Executável (Windows e Linux)
 Para executar o programa de maneira simples:
 
-Navegue até a pasta dist.
-Execute o arquivo principal:
+### Windows
+- Basta fazer o Download ZIP do repositório **main**
+- Extrair/Descompactar a pasta
+- Navegue até a pasta **dist**.
+Execute o arquivo **main.exe**:
 - **Windows**: Dê dois cliques no executável.
 
+### Linux
+- Basta fazer o Download ZIP do repositório **dev**
+- Extrair/Descompactar a pasta
+- Navegue até a raiz do repositório
 - **Linux**: Use o comando:
 ```bash
-dist/main
+dist/main_linux
 ```
 
 ---
