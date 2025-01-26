@@ -18,22 +18,34 @@ Este projeto foi desenvolvido para automatizar o processo de extração de infor
 ## ✨ Funcionalidades
 - **Leitura** de dados: Lê os CNPJs de uma planilha de entrada (`inputs.xlsx`).
 - **Extração** de dados: Efetua uma requisição ao um site de consulta de cnpj e obtém informações como Razão Social, Porte, Capital, Situação Cadastral, Telefone, Email e Endereço.
-- **Salva** dados: Após a extração os dados são formatados e salvos em uma planilha de saída (`outputs.xlsx`).
+- **Exportação** dados: Salva os dados coletados em uma planilha de saída (`outputs.xlsx`).
 
 ---
 
-## Inputs
-Para informar quais CNPJ's serão consultados, basta adicionar na planilha inputs.xlsx os CNPJ's na primeira coluna com o cabeçalho CNPJ. 
+## 📂 Configuração dos Arquivos
+- Planilha de Entrada (inputs.xlsx)
+- Certifique-se de criar ou editar uma planilha chamada inputs.xlsx.
+- A planilha deve conter os CNPJs na primeira coluna, com o cabeçalho CNPJ.
 
-Ao abrir a janela do sistema, é opcional o preenchimento do caminho da planilha input e output, caso não preencha será considerado a raiz da pasta, ou podera selecionar a planilha de input fora da pasta e onde deve ser salvo.
+### Configuração Opcional
+Ao iniciar o sistema, você poderá selecionar arquivos de entrada e saída fora da pasta padrão. Caso contrário, serão utilizados os caminhos padrão na raiz do projeto.
 
 ---
 
-## Rode de maneira simples
-Dentro da pasta dist terá um executavel para executar no windows basta das dois clicks e no linux use o comando abaixo na raiz do projeto:
+## 🚀 Como Executar
+Executável (Windows e Linux)
+Para executar o programa de maneira simples:
+
+Navegue até a pasta dist.
+Execute o arquivo principal:
+- **Windows**: Dê dois cliques no executável.
+
+- **Linux**: Use o comando:
 ```bash
 dist/main
 ```
+
+---
 
 ## 🛠 Instalação Dev (Essa sessão é necessária apenas para os devs)
 
@@ -47,12 +59,12 @@ Abra seu terminal (Bash, PowerShell ou CMD) e execute o seguinte comando:
 git clone https://github.com/juniorferreira23/CNPJ_Data_Extractor.git
 ```
 
-### Inicialização de ambiente vitual
+### 🌐 Criando ambiente vitual
 ```bash
 python3 -m venv venv
 ```
 
-### Acessar ambiente virtual
+### Ativar ambiente virtual
 Windows
 ```cmd
 .\venv\Scripts\activate.ps1
@@ -63,12 +75,14 @@ Linux
 Source venv/bin/activate
 ```
 
-### Instalação de dependências
+### 📦 Instalação de dependências
+No ambiente virtual, instale as bibliotecas necessárias:
 ```bash
 pip install -r requirements.txt
 ```
 
-### Run the Application
+### ▶️  Executando o Código
+Para rodar o programa diretamente, utilize:
 ```bash
 python3 main.py
 ```
