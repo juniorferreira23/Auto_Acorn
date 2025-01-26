@@ -37,12 +37,12 @@ Executável (Windows e Linux)
 Para executar o programa de maneira simples:
 
 Navegue até a pasta dist.
-Execute o arquivo principal:
+Execute o arquivo **main_windows.exe**:
 - **Windows**: Dê dois cliques no executável.
 
 - **Linux**: Use o comando:
 ```bash
-dist/main
+dist/main_linux
 ```
 
 ---
