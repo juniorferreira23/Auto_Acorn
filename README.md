@@ -22,7 +22,20 @@ Este projeto foi desenvolvido para automatizar o processo de extração de infor
 
 ---
 
-## 🛠 Instalação
+## Inputs
+Para informar quais CNPJ's serão consultados, basta adicionar na planilha inputs.xlsx os CNPJ's na primeira coluna com o cabeçalho CNPJ. 
+
+Ao abrir a janela do sistema, é opcional o preenchimento do caminho da planilha input e output, caso não preencha será considerado a raiz da pasta, ou podera selecionar a planilha de input fora da pasta e onde deve ser salvo.
+
+---
+
+## Rode de maneira simples
+Dentro da pasta dist terá um executavel para executar no windows basta das dois clicks e no linux use o comando abaixo na raiz do projeto:
+```bash
+dist/main
+```
+
+## 🛠 Instalação Dev (Essa sessão é necessária apenas para os devs)
 
 ### ✅ Requisitos
 1. **Python**: Certifique-se de que o Python está instalado no seu sistema. https://www.python.org/downloads/
